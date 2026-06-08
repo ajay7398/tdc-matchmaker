@@ -1,0 +1,68 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom Base Styles ── */
+@layer base {
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    background-color: #fdfaf6;
+    color: #1a1a2e;
+  }
+
+  h1, h2, h3 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
+
+/* ── Custom Utility Components ── */
+@layer components {
+  /* Status badge styles */
+  .badge-active {
+    @apply bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+  .badge-hold {
+    @apply bg-amber-100 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+  .badge-matched {
+    @apply bg-purple-100 text-purple-700 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+  .badge-inactive {
+    @apply bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+
+  /* Match score colors */
+  .score-green {
+    @apply bg-emerald-100 text-emerald-700 border border-emerald-200;
+  }
+  .score-blue {
+    @apply bg-blue-100 text-blue-700 border border-blue-200;
+  }
+  .score-yellow {
+    @apply bg-amber-100 text-amber-700 border border-amber-200;
+  }
+  .score-red {
+    @apply bg-red-100 text-red-700 border border-red-200;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #fda4af;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f43f5e;
+}
