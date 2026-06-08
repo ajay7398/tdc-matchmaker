@@ -42,8 +42,8 @@ export const login = (req, res) => {
 
   res.cookie("tdc_token", token, {
     httpOnly: true,        // JS cannot access this cookie
-    secure: false,         // Set to true in production (HTTPS only)
-    sameSite: "lax",       // Prevents CSRF attacks
+    secure: true,         // Set to true in production (HTTPS only)
+    sameSite: "none",       // Prevents CSRF attacks
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
   });
 
@@ -65,9 +65,11 @@ export const login = (req, res) => {
 export const logout = (req, res) => {
   
   res.cookie("tdc_token", "", {
-    httpOnly: true,
-    expires: new Date(0), // Expire immediately
-  });
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  expires: new Date(0),
+});
 
   res.status(200).json({
     success: true,
